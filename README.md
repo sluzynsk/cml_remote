@@ -2,15 +2,22 @@
 
 Remote Control for Cisco CML2.
 
+(C) 2020 Steven Luzynski <steve@luzynski.net>
+
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project will eventually be a full cross-platform remote UI to manage CML2 labs.
 
-A few resources to get you started if this is your first Flutter project:
+Features:
+Android/IOS support
+Windows & Linux standalone clients (pending the state of Flutter at any given moment)
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Maintain a list of servers to manage
+Show number of running labs
+Stop/start/restart existing labs
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Stretch:
+Edit labs (will need to be better than the web UI or why do it)
+Download/upload labs (same comment)
+Other ideas as they occur to me
+
