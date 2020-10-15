@@ -34,6 +34,7 @@ class _ServerListState extends State<ServerList> {
       body: _buildServerList(),
       floatingActionButton: FloatingActionButton(
         onPressed: _pushAdd,
+        child: Icon(Icons.add),
       ),
     );
   }
@@ -93,6 +94,29 @@ class _ServerListState extends State<ServerList> {
                   validator: (value) {
                     if (value.isEmpty) {
                       return 'Please enter a name or IP address.';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    hintText: 'Username:',
+                  ),
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please enter a username.';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    hintText: 'Password:',
+                  ),
+                  obscureText: true,
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please enter a password.';
                     }
                     return null;
                   },
