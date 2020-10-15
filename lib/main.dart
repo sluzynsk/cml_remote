@@ -1,12 +1,11 @@
-import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       title: "CML Instances",
       theme: ThemeData(
@@ -60,53 +59,60 @@ class _ServerListState extends State<ServerList> {
       title: Text(
         server.asLowerCase,
       ),
-      leading: Icon(
-        Icons.edit
-      ),
+      leading: Icon(Icons.edit),
     );
   }
 
   void _pushAdd() {
     Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (BuildContext context) {
-          return Scaffold(
-            appBar: AppBar(
-              title: Text('Add a server'),
-            ),
-            body: Form(
-              key: _formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      hintText: 'Host name or IP:',
-                    ),
-                    validator: (value) {
-                      if(value.isEmpty) {
-                        return 'Please enter a name or IP address.';
+      MaterialPageRoute<void>(builder: (BuildContext context) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text('Add a server'),
+          ),
+          body: Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                TextFormField(
+                  decoration: const InputDecoration(
+                    hintText: 'Server Nickname:',
+                  ),
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please enter a nickname for this server.';
+                    }
+                    return null;
+                  },
+                ),
+                TextFormField(
+                  decoration: const InputDecoration(
+                    hintText: 'Host name or IP:',
+                  ),
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Please enter a name or IP address.';
+                    }
+                    return null;
+                  },
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      if (_formKey.currentState.validate()) {
+                        // grab stuff here
                       }
-                      return null;
                     },
+                    child: Text('Submit'),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16.0),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        if (_formKey.currentState.validate()) {
-                          // grab stuff here
-                        }
-                      },
-                      child: Text('Submit'),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          );
-        }
-      ),
+          ),
+        );
+      }),
     );
   }
 }
